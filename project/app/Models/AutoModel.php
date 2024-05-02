@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AutoModel extends Model
 {
-    protected $table = 'models';
-
     use HasFactory;
+
+    protected $table = 'models';
+    public $timestamps = false;
 }

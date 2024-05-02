@@ -9,15 +9,7 @@
             <label for="mileage" class="font-bold block mb-2"> Пробег(км) </label>
             <InputNumber v-model="mileage" inputId="mileage" :min="4" :max="4" />
             <label for="color" class="font-bold block mb-2"> Цвет </label>
-            <SelectButton v-model="selectedColor" :options="colors"></SelectButton>
-            <div class="flex flex-wrap gap-3">
-                <div class="flex align-items-center">
-                    <RadioButton v-model="selectedColor" inputId="color" name="color" value="green" class="select-color-green"/>
-                    <label for="color" class="ml-2">Green</label>
-                    <RadioButton v-model="selectedColor" inputId="color" name="color" value="blue"/>
-                    <label for="color" class="ml-2">Green</label>
-                </div>
-            </div>
+            <SelectButton v-model="selectedColor" :options="colors" class="blue-50"></SelectButton>
         </p>
     </Panel>
 </template>
@@ -55,10 +47,14 @@ export default {
 }
 </script>
 <style>
-.select-color-green {
-    background-color: var(--green-400)!important;
+.p-selectbutton > div:nth-child(1n) {
+    background-color: var(--red-500)!important;
 }
-.select-color-blue {
+.p-selectbutton > div:nth-child(2n) {
+    background-color: var(--green-500)!important;
+}
+.p-selectbutton > div:nth-child(3n) {
     background-color: var(--blue-500)!important;
 }
+
 </style>

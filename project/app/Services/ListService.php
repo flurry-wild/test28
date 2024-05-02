@@ -35,9 +35,9 @@ class ListService
     public function colors()
     {
         return [
-            new StdClassArgumentReducer(),
-            'button-green' => 'green',
-            'button-blue' => 'blue'
+            'red',
+            'green',
+            'blue'
         ];
     }
 
