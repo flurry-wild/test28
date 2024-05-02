@@ -18166,7 +18166,8 @@ __webpack_require__.r(__webpack_exports__);
       //issues: []
       mileage: null,
       selectedColor: null,
-      colors: []
+      colors: [],
+      maxIssue: new Date().getFullYear()
     };
   },
   mounted: function mounted() {
@@ -18180,6 +18181,16 @@ __webpack_require__.r(__webpack_exports__);
         _this.models = res.data.data.models;
         _this.colors = res.data.data.colors;
         //this.issues = res.data.data.issues;
+      });
+    },
+    storeAuto: function storeAuto() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/auto', {
+        model_id: this.selectedModel.code,
+        issue: this.issue,
+        mileage: this.mileage,
+        color: this.selectedColor
+      }).then(function (res) {
+        ;
       });
     }
   }
@@ -18220,6 +18231,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Dropdown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Dropdown");
   var _component_InputNumber = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("InputNumber");
   var _component_SelectButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectButton");
+  var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
   var _component_Panel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Panel");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Panel, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -18247,16 +18259,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.issue = $event;
         }),
         inputId: "issue",
-        min: 4,
-        max: 4
-      }, null, 8 /* PROPS */, ["modelValue"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputNumber, {
+        min: 1980,
+        max: $data.maxIssue
+      }, null, 8 /* PROPS */, ["modelValue", "max"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputNumber, {
         modelValue: $data.mileage,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.mileage = $event;
         }),
         inputId: "mileage",
-        min: 4,
-        max: 4
+        min: 0,
+        max: 999999999
       }, null, 8 /* PROPS */, ["modelValue"]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectButton, {
         modelValue: $data.selectedColor,
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
@@ -18264,7 +18276,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         options: $data.colors,
         "class": "blue-50"
-      }, null, 8 /* PROPS */, ["modelValue", "options"])])];
+      }, null, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+        type: "button",
+        label: "Создать",
+        icon: "pi pi-search",
+        onClick: $options.storeAuto,
+        "class": "m-5"
+      }, null, 8 /* PROPS */, ["onClick"])])];
     }),
     _: 1 /* STABLE */
   });
@@ -18289,11 +18307,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primevue_inputnumber__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primevue/inputnumber */ "./node_modules/primevue/inputnumber/inputnumber.esm.js");
 /* harmony import */ var primevue_selectbutton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primevue/selectbutton */ "./node_modules/primevue/selectbutton/selectbutton.esm.js");
 /* harmony import */ var primevue_radiobutton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primevue/radiobutton */ "./node_modules/primevue/radiobutton/radiobutton.esm.js");
-/* harmony import */ var primevue_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primevue/config */ "./node_modules/primevue/config/config.esm.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var primevue_resources_themes_md_light_indigo_theme_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primevue/resources/themes/md-light-indigo/theme.css */ "./node_modules/primevue/resources/themes/md-light-indigo/theme.css");
-/* harmony import */ var primevue_resources_primevue_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primevue/resources/primevue.css */ "./node_modules/primevue/resources/primevue.css");
-/* harmony import */ var primeflex_primeflex_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeflex/primeflex.css */ "./node_modules/primeflex/primeflex.css");
+/* harmony import */ var primevue_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primevue/button */ "./node_modules/primevue/button/button.esm.js");
+/* harmony import */ var primevue_config__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primevue/config */ "./node_modules/primevue/config/config.esm.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var primevue_resources_themes_md_light_indigo_theme_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primevue/resources/themes/md-light-indigo/theme.css */ "./node_modules/primevue/resources/themes/md-light-indigo/theme.css");
+/* harmony import */ var primevue_resources_primevue_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primevue/resources/primevue.css */ "./node_modules/primevue/resources/primevue.css");
+/* harmony import */ var primeflex_primeflex_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeflex/primeflex.css */ "./node_modules/primeflex/primeflex.css");
+
 
 
 
@@ -18314,9 +18334,10 @@ main.component('Dropdown', primevue_dropdown__WEBPACK_IMPORTED_MODULE_5__["defau
 main.component('InputNumber', primevue_inputnumber__WEBPACK_IMPORTED_MODULE_6__["default"]);
 main.component('SelectButton', primevue_selectbutton__WEBPACK_IMPORTED_MODULE_7__["default"]);
 main.component('RadioButton', primevue_radiobutton__WEBPACK_IMPORTED_MODULE_8__["default"]);
+main.component('Button', primevue_button__WEBPACK_IMPORTED_MODULE_9__["default"]);
 main.use(_store__WEBPACK_IMPORTED_MODULE_3__["default"]);
 main.use(_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
-main.use(primevue_config__WEBPACK_IMPORTED_MODULE_9__["default"]);
+main.use(primevue_config__WEBPACK_IMPORTED_MODULE_10__["default"]);
 main.mount("#app");
 
 /***/ }),
@@ -22954,7 +22975,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.p-selectbutton > div:nth-child(1n) {\n    background-color: var(--red-500)!important;\n}\n.p-selectbutton > div:nth-child(2n) {\n    background-color: var(--green-400)!important;\n}\n.p-selectbutton > div:nth-child(3n) {\n    background-color: var(--blue-500)!important;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.p-selectbutton > div:nth-child(1n) {\n    background-color: var(--red-500)!important;\n}\n.p-selectbutton > div:nth-child(2n) {\n    background-color: var(--green-500)!important;\n}\n.p-selectbutton > div:nth-child(3n) {\n    background-color: var(--blue-500)!important;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

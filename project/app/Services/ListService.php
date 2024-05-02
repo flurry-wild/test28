@@ -4,10 +4,11 @@ namespace App\Services;
 
 use App\Models\AutoModel;
 use App\Models\Mark;
-use Spatie\Backtrace\Arguments\Reducers\StdClassArgumentReducer;
 
 class ListService
 {
+    const COLORS = ['red', 'green', 'blue'];
+
     public function marks()
     {
         return Mark::all()->map(
@@ -34,15 +35,6 @@ class ListService
 
     public function colors()
     {
-        return [
-            'red',
-            'green',
-            'blue'
-        ];
-    }
-
-    public function issues()
-    {
-        return range(1980, date('Y'));
+        return static::COLORS;
     }
 }

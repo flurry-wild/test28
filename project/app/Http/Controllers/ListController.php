@@ -19,7 +19,6 @@ class ListController extends Controller
             'marks' => $this->service->marks(),
             'models' => $this->service->models(),
             'colors' => $this->service->colors()
-            //'issues' => $this->service->issues()
         ]]);
     }
 }

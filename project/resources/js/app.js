@@ -9,6 +9,7 @@ import Dropdown from 'primevue/dropdown';
 import InputNumber from 'primevue/inputnumber';
 import SelectButton from 'primevue/selectbutton';
 import RadioButton from 'primevue/radiobutton';
+import Button from 'primevue/button';
 
 import PrimeVue from 'primevue/config';
 
@@ -24,6 +25,7 @@ main.component('Dropdown', Dropdown);
 main.component('InputNumber', InputNumber);
 main.component('SelectButton', SelectButton);
 main.component('RadioButton', RadioButton);
+main.component('Button', Button);
 
 main.use(store);
 main.use(router);
