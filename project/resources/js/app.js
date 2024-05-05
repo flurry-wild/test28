@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 
-import App from './components/Pages/Index.vue';
+import App from './components/Pages/App.vue';
 import router from './router';
 import store from './store';
 
@@ -10,6 +10,7 @@ import InputNumber from 'primevue/inputnumber';
 import SelectButton from 'primevue/selectbutton';
 import RadioButton from 'primevue/radiobutton';
 import Button from 'primevue/button';
+import Listbox from 'primevue/listbox';
 
 import PrimeVue from 'primevue/config';
 
@@ -26,6 +27,7 @@ main.component('InputNumber', InputNumber);
 main.component('SelectButton', SelectButton);
 main.component('RadioButton', RadioButton);
 main.component('Button', Button);
+main.component('Listbox', Listbox);
 
 main.use(store);
 main.use(router);
