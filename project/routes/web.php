@@ -19,5 +19,7 @@ Route::get('lists', [\App\Http\Controllers\ListController::class, 'index']);
 Route::get('marks', [\App\Http\Controllers\MarkController::class, 'index']);
 Route::get('models', [\App\Http\Controllers\ModelController::class, 'index']);
 
+Route::get('autos', [\App\Http\Controllers\AutoController::class, 'index']);
 Route::get('auto', [\App\Http\Controllers\AutoController::class, 'create']);
 Route::post('auto', [\App\Http\Controllers\AutoController::class, 'store']);
+Route::patch('auto/{auto}', [\App\Http\Controllers\AutoController::class, 'update']);

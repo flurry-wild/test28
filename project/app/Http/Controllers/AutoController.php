@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AutoStoreRequest;
+use App\Http\Requests\AutoUpdateRequest;
+use App\Models\Auto;
 use App\Services\AutoService;
 use Illuminate\Http\JsonResponse;
 
@@ -12,17 +14,17 @@ class AutoController extends Controller
 
     public function index()
     {
-
+        return new JsonResponse(['data' => $this->service->list()]);
     }
 
-    public function show()
+    public function show(Auto $auto)
     {
 
     }
 
     public function create()
     {
-        return view('index');
+        return view('app');
     }
 
     public function store(AutoStoreRequest $request)
@@ -30,8 +32,10 @@ class AutoController extends Controller
         return new JsonResponse([$this->service->store($request->validated())]);
     }
 
-    public function update()
+    public function update(AutoUpdateRequest $request, Auto $auto)
     {
-
+        return new JsonResponse([
+            $this->service->update($auto, $request->validated())
+        ]);
     }
 }
