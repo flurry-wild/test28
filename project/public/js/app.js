@@ -18230,7 +18230,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       autos: [],
-      selectedAuto: null
+      selectedAuto: null,
+      autoDetail: null
     };
   },
   mounted: function mounted() {
@@ -18243,10 +18244,12 @@ __webpack_require__.r(__webpack_exports__);
         _this.autos = res.data.data;
       });
     },
-    changeAuto: function changeAuto(event) {
-      console.log(this.selectedAuto.code);
+    changeAuto: function changeAuto() {
+      var _this2 = this;
       if (this.selectedAuto !== null) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auto/' + this.selectedAuto.code);
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auto/' + this.selectedAuto.code).then(function (res) {
+          _this2.autoDetail = res.data.data;
+        });
       }
     }
   }
@@ -18380,13 +18383,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_1 = {
+  "class": "flex flex-row flex-wrap justify-content-between"
+};
+var _hoisted_2 = {
+  key: 0,
   "class": "m-0"
-}, null, -1 /* HOISTED */);
+};
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "id",
+  "class": "font-bold block mb-2"
+}, " ID ", -1 /* HOISTED */);
+var _hoisted_4 = {
+  id: "id"
+};
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "issue",
+  "class": "font-bold block mb-2"
+}, " Год выпуска ", -1 /* HOISTED */);
+var _hoisted_6 = {
+  id: "issue"
+};
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "mileage",
+  "class": "font-bold block mb-2"
+}, " Пробег ", -1 /* HOISTED */);
+var _hoisted_8 = {
+  id: "mileage"
+};
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "color",
+  "class": "font-bold block mb-2"
+}, " Цвет ", -1 /* HOISTED */);
+var _hoisted_10 = {
+  id: "color"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Listbox = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Listbox");
   var _component_Panel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Panel");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Listbox, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Listbox, {
     modelValue: $data.selectedAuto,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.selectedAuto = $event;
@@ -18404,12 +18439,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(slotProps.option.name), 1 /* TEXT */)])];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Panel, null, {
+  }, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Panel, {
+    style: {
+      "min-width": "80%"
+    }
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1];
+      return [$data.autoDetail ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.autoDetail.id), 1 /* TEXT */), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.autoDetail.issue), 1 /* TEXT */), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.autoDetail.mileage), 1 /* TEXT */), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.autoDetail.color), 1 /* TEXT */)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1 /* STABLE */
-  })], 64 /* STABLE_FRAGMENT */);
+  })]);
 }
 
 /***/ }),
