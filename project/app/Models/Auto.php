@@ -10,4 +10,10 @@ class Auto extends Model
     use HasFactory;
 
     protected $fillable = ['model_id', 'issue', 'mileage', 'color'];
+
+    public function model()
+    {
+        return $this->belongsTo(AutoModel::class);
+    }
+
 }

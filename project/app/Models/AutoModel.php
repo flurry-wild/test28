@@ -11,4 +11,9 @@ class AutoModel extends Model
 
     protected $table = 'models';
     public $timestamps = false;
+
+    public function mark()
+    {
+        return $this->belongsTo(Mark::class);
+    }
 }
