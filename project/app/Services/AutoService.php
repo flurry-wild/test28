@@ -6,12 +6,12 @@ use App\Models\Auto;
 
 class AutoService
 {
-    public function store($data)
+    public function store(array $data)
     {
         return Auto::create($data);
     }
 
-    public function update($auto, $data): bool
+    public function update(Auto $auto, array $data): bool
     {
         return $auto->update($data);
     }
