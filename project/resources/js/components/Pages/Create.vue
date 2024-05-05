@@ -26,7 +26,6 @@ export default {
             selectedModel: null,
             models: [],
             issue: null,
-            //issues: []
             mileage: null,
             selectedColor: null,
             colors: [],
@@ -42,7 +41,6 @@ export default {
                 this.marks = res.data.data.marks;
                 this.models = res.data.data.models;
                 this.colors = res.data.data.colors;
-                //this.issues = res.data.data.issues;
             });
         },
         storeAuto() {

@@ -19,7 +19,7 @@ class AutoController extends Controller
 
     public function show(Auto $auto)
     {
-
+        return new JsonResponse(['data' => $this->service->one($auto->id)]);
     }
 
     public function create()

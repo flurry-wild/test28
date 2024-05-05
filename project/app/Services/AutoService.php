@@ -27,4 +27,9 @@ class AutoService
                 ];
             });
     }
+
+    public function one(int $id)
+    {
+        return Auto::find($id)->with('model', 'model.mark')->first();
+    }
 }

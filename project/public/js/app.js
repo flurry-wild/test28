@@ -18178,7 +18178,6 @@ __webpack_require__.r(__webpack_exports__);
       selectedModel: null,
       models: [],
       issue: null,
-      //issues: []
       mileage: null,
       selectedColor: null,
       colors: [],
@@ -18195,7 +18194,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.marks = res.data.data.marks;
         _this.models = res.data.data.models;
         _this.colors = res.data.data.colors;
-        //this.issues = res.data.data.issues;
       });
     },
     storeAuto: function storeAuto() {
@@ -18244,6 +18242,12 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('/autos').then(function (res) {
         _this.autos = res.data.data;
       });
+    },
+    changeAuto: function changeAuto(event) {
+      console.log(this.selectedAuto.code);
+      if (this.selectedAuto !== null) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auto/' + this.selectedAuto.code);
+      }
     }
   }
 });
@@ -18376,17 +18380,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "m-0"
+}, null, -1 /* HOISTED */);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Listbox = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Listbox");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Listbox, {
+  var _component_Panel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Panel");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Listbox, {
     modelValue: $data.selectedAuto,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.selectedAuto = $event;
     }),
     options: $data.autos,
     optionLabel: "name",
     "class": "w-full md:w-14rem"
-  }, null, 8 /* PROPS */, ["modelValue", "options"]);
+  }, {
+    option: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (slotProps) {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        "class": "flex align-items-center",
+        onClick: _cache[0] || (_cache[0] = function () {
+          return $options.changeAuto && $options.changeAuto.apply($options, arguments);
+        })
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(slotProps.option.name), 1 /* TEXT */)])];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Panel, null, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_1];
+    }),
+    _: 1 /* STABLE */
+  })], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

@@ -21,5 +21,6 @@ Route::get('models', [\App\Http\Controllers\ModelController::class, 'index']);
 
 Route::get('autos', [\App\Http\Controllers\AutoController::class, 'index']);
 Route::get('auto', [\App\Http\Controllers\AutoController::class, 'create']);
+Route::get('auto/{auto}', [\App\Http\Controllers\AutoController::class, 'show']);
 Route::post('auto', [\App\Http\Controllers\AutoController::class, 'store']);
 Route::patch('auto/{auto}', [\App\Http\Controllers\AutoController::class, 'update']);
