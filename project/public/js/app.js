@@ -18329,18 +18329,30 @@ var _hoisted_1 = {
   "class": "m-0"
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "Создание авто", -1 /* HOISTED */);
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_3 = {
+  "class": "m-5"
+};
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "issue",
   "class": "font-bold block mb-2"
 }, " Год выпуска ", -1 /* HOISTED */);
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_5 = {
+  "class": "m-5"
+};
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "mileage",
   "class": "font-bold block mb-2"
 }, " Пробег(км) ", -1 /* HOISTED */);
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_7 = {
+  "class": "m-5"
+};
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "color",
   "class": "font-bold block mb-2"
 }, " Цвет ", -1 /* HOISTED */);
+var _hoisted_9 = {
+  "class": "m-5"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
   var _component_Dropdown = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Dropdown");
@@ -18374,7 +18386,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         optionLabel: "name",
         placeholder: "Выберите модель",
         "class": "w-full md:w-14rem"
-      }, null, 8 /* PROPS */, ["modelValue", "options"]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputNumber, {
+      }, null, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputNumber, {
         modelValue: $data.issue,
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $data.issue = $event;
@@ -18382,7 +18394,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: "issue",
         min: 1980,
         max: $data.maxIssue
-      }, null, 8 /* PROPS */, ["modelValue", "max"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputNumber, {
+      }, null, 8 /* PROPS */, ["modelValue", "max"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputNumber, {
         modelValue: $data.mileage,
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.mileage = $event;
@@ -18390,7 +18402,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         inputId: "mileage",
         min: 0,
         max: 999999999
-      }, null, 8 /* PROPS */, ["modelValue"]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectButton, {
+      }, null, 8 /* PROPS */, ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectButton, {
         modelValue: $data.selectedColor,
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.selectedColor = $event;
@@ -18398,13 +18410,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         options: $data.colors,
         inputId: "color",
         "class": "autoColor"
-      }, null, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+      }, null, 8 /* PROPS */, ["modelValue", "options"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
         type: "button",
         label: "Создать",
         icon: "pi pi-search",
         onClick: $options.storeAuto,
         "class": "m-5"
-      }, null, 8 /* PROPS */, ["onClick"])])];
+      }, null, 8 /* PROPS */, ["onClick"])])])];
     }),
     _: 1 /* STABLE */
   })], 64 /* STABLE_FRAGMENT */);
