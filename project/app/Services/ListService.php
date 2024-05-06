@@ -21,9 +21,15 @@ class ListService
         );
     }
 
-    public function models()
+    public function models(array $data = null)
     {
-        return AutoModel::all()->map(
+        $query = AutoModel::query();
+
+        if (! empty($data)) {
+            $query->where('mark_id', $data['mark_id']);
+        }
+
+        return $query->get()->map(
             function (AutoModel $model) {
                 return [
                     'name' => $model->name,

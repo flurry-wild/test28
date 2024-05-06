@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ListModelsIndexRequest;
 use App\Services\ListService;
 use Illuminate\Http\JsonResponse;
 
@@ -20,5 +21,12 @@ class ListController extends Controller
             'models' => $this->service->models(),
             'colors' => $this->service->colors()
         ]]);
+    }
+
+    public function models(ListModelsIndexRequest $request)
+    {
+        return new JsonResponse([
+            'data' => $this->service->models($request->validated()),
+        ]);
     }
 }

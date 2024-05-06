@@ -18192,7 +18192,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('/lists').then(function (res) {
         _this.marks = res.data.data.marks;
-        _this.models = res.data.data.models;
         _this.colors = res.data.data.colors;
       });
     },
@@ -18202,8 +18201,12 @@ __webpack_require__.r(__webpack_exports__);
         issue: this.issue,
         mileage: this.mileage,
         color: this.selectedColor
-      }).then(function (res) {
-        ;
+      });
+    },
+    reloadModels: function reloadModels() {
+      var _this2 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/models?mark_id=' + this.selectedMark.code).then(function (res) {
+        _this2.models = res.data.data;
       });
     }
   }
@@ -18323,8 +18326,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         options: $data.marks,
         optionLabel: "name",
         placeholder: "Выберите марку",
-        "class": "w-full md:w-14rem"
-      }, null, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dropdown, {
+        "class": "w-full md:w-14rem",
+        onChange: $options.reloadModels
+      }, null, 8 /* PROPS */, ["modelValue", "options", "onChange"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dropdown, {
         modelValue: $data.selectedModel,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $data.selectedModel = $event;
