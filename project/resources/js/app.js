@@ -18,6 +18,7 @@ import 'bootstrap';
 import 'primevue/resources/themes/md-light-indigo/theme.css';
 import 'primevue/resources/primevue.css';
 import 'primeflex/primeflex.css';
+import 'primeicons/primeicons.css'
 
 const main = createApp(App);
 

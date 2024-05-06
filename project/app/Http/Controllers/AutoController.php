@@ -38,4 +38,9 @@ class AutoController extends Controller
             $this->service->update($auto, $request->validated())
         ]);
     }
+
+    public function delete(Auto $auto)
+    {
+        return new JsonResponse($this->service->delete($auto->id));
+    }
 }

@@ -32,4 +32,8 @@ class AutoService
     {
         return Auto::find($id)->with('model', 'model.mark')->first();
     }
+
+    public function delete(int $id) {
+        return Auto::find($id)->delete();
+    }
 }
