@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\AutoController::class, 'create']);
 
 Route::get('lists', [\App\Http\Controllers\ListController::class, 'index']);
-Route::get('marks', [\App\Http\Controllers\MarkController::class, 'index']);
 Route::get('models', [\App\Http\Controllers\ListController::class, 'models']);
 
 Route::get('autos', [\App\Http\Controllers\AutoController::class, 'index']);
