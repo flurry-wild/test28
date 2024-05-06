@@ -16,18 +16,22 @@
 
                 <div class="m-5">
                     <label for="issue" class="font-bold block mb-2"> Год выпуска </label>
-                    <div id="issue">{{ autoDetail.issue }}</div>
+                    <InputNumber v-model="autoDetail.issue" inputId="issue" :min="1980" :max="maxIssue" />
                 </div>
 
                 <div class="m-5">
                     <label for="mileage" class="font-bold block mb-2"> Пробег </label>
-                    <div id="mileage">{{ autoDetail.mileage }}</div>
+                    <InputNumber v-model="autoDetail.mileage" inputId="mileage" :min="0" :max="999999999" />
                 </div>
 
                 <div class="m-5">
                     <label for="color" class="font-bold block mb-2"> Цвет </label>
-                    <div id="color">{{ autoDetail.color }}</div>
+                    <SelectButton v-model="autoDetail.color" :options="colors" inputId="color" class="autoColor"></SelectButton>
                 </div>
+
+                <span class="m-5">
+                    <Button label="Сохранить" icon="pi pi-check" @click="updateAuto"/>
+                </span>
 
                 <div class="m-5">
                     <Button icon="pi pi-times" severity="danger" aria-label="Cancel" @click="deleteAuto"/>
@@ -45,17 +49,19 @@ export default {
         return {
             autos: [],
             selectedAuto: null,
-            autoDetail: null
+            autoDetail: null,
+            maxIssue: new Date().getFullYear(),
+            colors: []
         }
     },
     mounted() {
         this.getAutoList();
+        this.getLists();
     },
     methods: {
         getAutoList() {
             axios.get('/autos').then(res => {
                 this.autos = res.data.data;
-                console.log(this.autos);
                 this.selectedAuto = this.autos[0];
                 this.showAuto();
             });
@@ -70,6 +76,21 @@ export default {
         deleteAuto() {
             axios.delete('/auto/'+this.selectedAuto.code).then(res => {
                 this.getAutoList();
+            })
+        },
+        getLists() {
+            axios.get('/lists').then(res => {
+                this.colors = res.data.data.colors;
+            });
+        },
+        updateAuto() {
+            axios.patch('auto/'+this.selectedAuto.code, {
+                issue: this.autoDetail.issue,
+                mileage: this.autoDetail.mileage,
+                color: this.autoDetail.color,
+                model_id: this.autoDetail.model_id
+            }).then(res => {
+                this.showAuto();
             })
         }
     }

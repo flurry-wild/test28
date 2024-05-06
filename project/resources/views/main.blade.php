@@ -10,6 +10,21 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Auto CRUD</title>
+    <style>
+        .p-selectbutton > div:nth-child(1n) {
+            background-color: var(--red-500)!important;
+        }
+        .p-selectbutton > div:nth-child(2n) {
+            background-color: var(--green-500)!important;
+        }
+        .p-selectbutton > div:nth-child(3n) {
+            background-color: var(--blue-500)!important;
+        }
+
+        .autoColor > .p-highlight {
+            border: 3px solid black;
+        }
+    </style>
 </head>
 <body class="p-5">
 

@@ -10,7 +10,7 @@
             <label for="mileage" class="font-bold block mb-2"> Пробег(км) </label>
             <InputNumber v-model="mileage" inputId="mileage" :min="0" :max="999999999" />
             <label for="color" class="font-bold block mb-2"> Цвет </label>
-            <SelectButton v-model="selectedColor" :options="colors" class="blue-50"></SelectButton>
+            <SelectButton v-model="selectedColor" :options="colors"></SelectButton>
             <Button type="button" label="Создать" icon="pi pi-search" @click="storeAuto" class="m-5"/>
         </p>
     </Panel>
@@ -62,15 +62,3 @@ export default {
     }
 }
 </script>
-<style>
-.p-selectbutton > div:nth-child(1n) {
-    background-color: var(--red-500)!important;
-}
-.p-selectbutton > div:nth-child(2n) {
-    background-color: var(--green-500)!important;
-}
-.p-selectbutton > div:nth-child(3n) {
-    background-color: var(--blue-500)!important;
-}
-
-</style>
