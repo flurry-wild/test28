@@ -18,7 +18,6 @@ class ListController extends Controller
     {
         return new JsonResponse(['data' => [
             'marks' => $this->service->marks(),
-            'models' => $this->service->models(),
             'colors' => $this->service->colors()
         ]]);
     }
