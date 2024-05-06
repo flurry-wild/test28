@@ -1,4 +1,5 @@
 <template>
+    <Button type="button" label="Список" icon="pi pi-list" @click="redirectOnList" class="m-2"/>
     <Panel>
         <p class="m-0">
             <h1>Создание авто</h1>
@@ -54,6 +55,9 @@ export default {
             axios.get('/models?mark_id='+this.selectedMark.code).then(res => {
                 this.models = res.data.data;
             });
+        },
+        redirectOnList() {
+            document.location.href = '/#/list';
         }
     }
 }
