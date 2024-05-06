@@ -18395,7 +18395,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.selectedColor = $event;
         }),
-        options: $data.colors
+        options: $data.colors,
+        inputId: "color",
+        "class": "autoColor"
       }, null, 8 /* PROPS */, ["modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
         type: "button",
         label: "Создать",
