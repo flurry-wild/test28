@@ -61,15 +61,9 @@ export default {
             });
         },
         showAuto() {
-            //console.log(this.selectedAuto);
-
             if (this.selectedAuto != null) {
                 axios.get('/auto/'+this.selectedAuto.code).then(res => {
                     this.autoDetail = res.data.data;
-
-                    console.log(res.data.data);
-                    /*console.log(res.data.data.id);
-                    console.log(this.autoDetail);*/
                 });
             }
         },
