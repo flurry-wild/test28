@@ -144,6 +144,142 @@
                         }
                     }
                 }
+            },
+            "patch": {
+                "tags": [
+                    "Auto"
+                ],
+                "summary": "Обновление автомобиля",
+                "operationId": "87503eaa2ee944eb440a009b040c0d38",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "data": {
+                                                "properties": {
+                                                    "model_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "issue": {
+                                                        "type": "integer",
+                                                        "example": 1980
+                                                    },
+                                                    "mileage": {
+                                                        "type": "integer",
+                                                        "example": 100000
+                                                    },
+                                                    "color": {
+                                                        "type": "string",
+                                                        "example": "red"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Результат обновления",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "result": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auto": {
+            "post": {
+                "tags": [
+                    "Auto"
+                ],
+                "summary": "Создание автомобиля",
+                "operationId": "73706a6026be976a7a3c3b984716e684",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "model_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "issue": {
+                                                "type": "integer",
+                                                "example": 1980
+                                            },
+                                            "mileage": {
+                                                "type": "integer",
+                                                "example": 100000
+                                            },
+                                            "color": {
+                                                "type": "string",
+                                                "example": "red"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Данные созданного авто",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "model_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "issue": {
+                                                    "type": "integer",
+                                                    "example": 1980
+                                                },
+                                                "mileage": {
+                                                    "type": "integer",
+                                                    "example": 100000
+                                                },
+                                                "color": {
+                                                    "type": "string",
+                                                    "example": "red"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

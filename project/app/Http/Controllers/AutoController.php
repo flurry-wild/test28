@@ -34,13 +34,11 @@ class AutoController extends Controller
 
     public function update(AutoUpdateRequest $request, Auto $auto)
     {
-        return new JsonResponse([
-            $this->service->update($auto, $request->validated())
-        ]);
+        return new JsonResponse(['result' => $this->service->update($auto, $request->validated())]);
     }
 
     public function delete(Auto $auto)
     {
-        return new JsonResponse($this->service->delete($auto->id));
+        return new JsonResponse(['result' => $this->service->delete($auto->id)]);
     }
 }

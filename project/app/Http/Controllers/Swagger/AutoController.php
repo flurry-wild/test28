@@ -78,14 +78,58 @@ use App\Http\Controllers\Controller;
  *     tags={"Auto"},
  *
  *     @OA\RequestBody(
- *         @OA\Property(property="model_id", type="integer", example=1),
- *         @OA\Property(property="issue", type="integer", example=1980),
- *         @OA\Property(property="mileage", type="integer", example=100000),
- *         @OA\Property(property="color", type="string", example="red"),
- *     )
+ *         @OA\JsonContent(
+ *             allOf={
+ *                 @OA\Schema(
+ *                     @OA\Property(property="model_id", type="integer", example=1),
+ *                     @OA\Property(property="issue", type="integer", example=1980),
+ *                     @OA\Property(property="mileage", type="integer", example=100000),
+ *                     @OA\Property(property="color", type="string", example="red")
+ *                 )
+ *             }
+ *         )
+ *     ),
  *
  *     @OA\Response(
+ *         response=200,
+ *         description="Данные созданного авто",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="data", type="object",
+ *                 @OA\Property(property="model_id", type="integer", example=1),
+ *                 @OA\Property(property="issue", type="integer", example=1980),
+ *                 @OA\Property(property="mileage", type="integer", example=100000),
+ *                 @OA\Property(property="color", type="string", example="red"),
+ *             )
+ *         )
+ *     )
+ * )
  *
+ * @OA\Patch(
+ *     path="/auto/{auto}",
+ *     summary="Обновление автомобиля",
+ *     tags={"Auto"},
+ *
+ *     @OA\RequestBody(
+ *         @OA\JsonContent(
+ *             allOf={
+ *                 @OA\Schema(
+ *                     @OA\Property(property="data", type="object",
+ *                         @OA\Property(property="model_id", type="integer", example=1),
+ *                         @OA\Property(property="issue", type="integer", example=1980),
+ *                         @OA\Property(property="mileage", type="integer", example=100000),
+ *                         @OA\Property(property="color", type="string", example="red"),
+ *                     )
+ *                 )
+ *             }
+ *         )
+ *     ),
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="Результат обновления",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="result", type="boolean", example="true")
+ *         )
  *     )
  * )
  */
