@@ -145,6 +145,31 @@
                     }
                 }
             },
+            "delete": {
+                "tags": [
+                    "Auto"
+                ],
+                "summary": "Удаление автомобиля",
+                "operationId": "092441a0cf5dcbbf8663c251d7e45fac",
+                "responses": {
+                    "200": {
+                        "description": "Данные авто",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "result": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "patch": {
                 "tags": [
                     "Auto"

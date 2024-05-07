@@ -132,6 +132,20 @@ use App\Http\Controllers\Controller;
  *         )
  *     )
  * )
+ *
+ * @OA\Delete(
+ *     path="/auto/{auto}",
+ *     summary="Удаление автомобиля",
+ *     tags={"Auto"},
+ *
+ *     @OA\Response(
+ *          response=200,
+ *          description="Данные авто",
+ *          @OA\JsonContent(
+ *               @OA\Property(property="result", type="boolean", example="true")
+ *          )
+ *     )
+ * )
  */
 class AutoController extends Controller
 {
