@@ -29,7 +29,7 @@ class AutoController extends Controller
 
     public function store(AutoStoreRequest $request)
     {
-        return new JsonResponse([$this->service->store($request->validated())]);
+        return new JsonResponse(['data' => $this->service->store($request->validated())]);
     }
 
     public function update(AutoUpdateRequest $request, Auto $auto)

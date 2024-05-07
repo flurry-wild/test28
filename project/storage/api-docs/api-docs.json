@@ -1,0 +1,150 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Auto CRUD",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Auto"
+                ],
+                "summary": "Страница формы создания авто",
+                "operationId": "da0f7b9f10223abd24ade878719162db",
+                "responses": {
+                    "200": {
+                        "description": "Html страница"
+                    }
+                }
+            }
+        },
+        "/autos/": {
+            "get": {
+                "tags": [
+                    "Auto"
+                ],
+                "summary": "Список автомобилей без подробных характеристик",
+                "operationId": "0b70d480240070e5276123447917f1cc",
+                "responses": {
+                    "200": {
+                        "description": "Список",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "TOYOTA CRESTA"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auto/{auto}": {
+            "get": {
+                "tags": [
+                    "Auto"
+                ],
+                "summary": "Автомобиль",
+                "operationId": "f7f17194ecdb9dc35db180ea5dc09e82",
+                "responses": {
+                    "200": {
+                        "description": "Данные авто",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "model_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "issue": {
+                                                    "type": "integer",
+                                                    "example": 1980
+                                                },
+                                                "mileage": {
+                                                    "type": "integer",
+                                                    "example": 100000
+                                                },
+                                                "color": {
+                                                    "type": "string",
+                                                    "example": "red"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-05-02T13:30:14.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-05-02T13:30:14.000000Z"
+                                                },
+                                                "model": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "CRESTA"
+                                                        },
+                                                        "mark_id": {
+                                                            "type": "integer",
+                                                            "example": "1"
+                                                        },
+                                                        "mark": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "name": {
+                                                                    "type": "string",
+                                                                    "example": "TOYOTA"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
