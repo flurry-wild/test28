@@ -30,7 +30,7 @@ class AutoService
 
     public function one(int $id)
     {
-        return Auto::find($id)->with('model', 'model.mark')->first();
+        return Auto::where('id', $id)->with('model', 'model.mark')->first();
     }
 
     public function delete(int $id) {

@@ -1,12 +1,6 @@
 <template>
     <div class="flex flex-row flex-wrap justify-content-between">
-        <Listbox v-model="selectedAuto" :options="autos" optionLabel="name" class="w-full md:w-14rem">
-            <template #option="slotProps">
-                <div class="flex align-items-center" @click="showAuto">
-                    <div>{{ slotProps.option.name }}</div>
-                </div>
-            </template>
-        </Listbox>
+        <Listbox v-model="selectedAuto" :options="autos" optionLabel="name" class="w-full md:w-14rem" @change="showAuto" />
         <Panel style="min-width:80%;">
             <p class="m-0" v-if="autoDetail">
                 <div class="m-5">
@@ -67,9 +61,15 @@ export default {
             });
         },
         showAuto() {
-            if (this.selectedAuto !== null) {
+            //console.log(this.selectedAuto);
+
+            if (this.selectedAuto != null) {
                 axios.get('/auto/'+this.selectedAuto.code).then(res => {
                     this.autoDetail = res.data.data;
+
+                    console.log(res.data.data);
+                    /*console.log(res.data.data.id);
+                    console.log(this.autoDetail);*/
                 });
             }
         },
