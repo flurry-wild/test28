@@ -4,12 +4,13 @@ namespace App\Services;
 
 use App\Models\AutoModel;
 use App\Models\Mark;
+use Illuminate\Support\Collection;
 
 class ListService
 {
     const COLORS = ['red', 'green', 'blue'];
 
-    public function marks()
+    public function marks(): Collection
     {
         return Mark::all()->map(
             function (Mark $mark) {
@@ -21,7 +22,7 @@ class ListService
         );
     }
 
-    public function models(array $data = null)
+    public function models(array $data = null): Collection
     {
         $query = AutoModel::query();
 
@@ -39,7 +40,7 @@ class ListService
         );
     }
 
-    public function colors()
+    public function colors(): array
     {
         return static::COLORS;
     }

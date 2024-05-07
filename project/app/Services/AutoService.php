@@ -3,10 +3,11 @@
 namespace App\Services;
 
 use App\Models\Auto;
+use Illuminate\Support\Collection;
 
 class AutoService
 {
-    public function store(array $data)
+    public function store(array $data): Auto | null
     {
         return Auto::create($data);
     }
@@ -16,7 +17,7 @@ class AutoService
         return $auto->update($data);
     }
 
-    public function list()
+    public function list(): Collection
     {
         return Auto::with('model', 'model.mark')
             ->get()
@@ -28,12 +29,13 @@ class AutoService
             });
     }
 
-    public function one(int $id)
+    public function one(int $id): Auto | null
     {
         return Auto::where('id', $id)->with('model', 'model.mark')->first();
     }
 
-    public function delete(int $id) {
+    public function delete(int $id): bool
+    {
         return Auto::find($id)->delete();
     }
 }
