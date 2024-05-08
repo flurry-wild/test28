@@ -306,6 +306,100 @@
                     }
                 }
             }
+        },
+        "/lists/": {
+            "get": {
+                "tags": [
+                    "List"
+                ],
+                "summary": "Списки значений",
+                "operationId": "7046d1dc626d0599ef31431bfd85b104",
+                "responses": {
+                    "200": {
+                        "description": "Список марок, список цветов",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "marks": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string",
+                                                                "example": "TOYOTA"
+                                                            },
+                                                            "code": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "colors": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "example": [
+                                                        "red",
+                                                        "green",
+                                                        "blue"
+                                                    ]
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/models/": {
+            "get": {
+                "tags": [
+                    "List"
+                ],
+                "summary": "Список моделей",
+                "operationId": "771cb1cded5032aee5a2b2eaeec35ffd",
+                "responses": {
+                    "200": {
+                        "description": "Список моделей",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "CRESTA"
+                                                    },
+                                                    "code": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
